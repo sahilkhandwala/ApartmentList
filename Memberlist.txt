@@ -3,4 +3,11 @@ B
 C
 D
 This is the content to write into file
-dwdd
+dwddSahil
+Jake
+Annie
+Harry
+Rahul
+Cole
+KK
+Ravi

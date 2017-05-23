@@ -12,21 +12,35 @@ import java.util.concurrent.ThreadLocalRandom;
 public class SpinningCage {
 	
 	private List<String> members;
-	private final String FILENAME = "/home/sahil/ApartmentList/Memberlist.txt";
+	private List<String> absentMembers = new ArrayList<>();
+	private final String FILENAME = "./Memberlist.txt";
 	private BufferedReader br;
+	
+	public SpinningCage() {
+		initializeMemberList();
+	}
 	
 	public void addNewMembers(String name){
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME, true))) {
 			bw.write(name);
 			bw.newLine();
+			initializeMemberList();
 		} catch (IOException e) {
 			System.out.println("Exception while adding new member!");
 		}
 	}
 	
+	public boolean addAbsentMember(String name) {
+		boolean present = members.contains(name);
+		if(present) {
+			absentMembers.add(name);	
+		}
+		return present;
+	}
+	
 	public void fridayLunch() {
-		initializeMemberList();
-
+		members.removeAll(absentMembers);
+		
 		int totalMembers = members.size();
 		int groupNo = 1;
 		int groupSize = 0;
