@@ -1,4 +1,4 @@
-Interesting Problem to divide employees of ApartmentList into different Lunch Groups!
+Raffle to divide employees into different lunch groups!
 
 1. We have an option menu to add new members or generate the groups
 2. Constraints is that group size can only be between 3 to 5 members
